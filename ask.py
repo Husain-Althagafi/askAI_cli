@@ -22,9 +22,11 @@ def chat_mode():
             break
 
         response = chat.send_message_stream(prompt)
-
+        
+        print('\n\nResponse: ')
         for chunk in response:
             print(chunk.text, end='')
+        print(' \n\n----------------------------------------\n\n')
     
 
 
