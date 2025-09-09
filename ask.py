@@ -31,12 +31,31 @@ def chat_mode():
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == 'chat':
-        chat_mode()
 
-    elif len(sys.argv) > 1:
-        prompt = " ".join(sys.argv[1:])
-        one_shot(prompt)
+    import argparse
+
+    parser = argparse.ArguementParser(description="Custom CLI tool for llm usage")
+
+    parser.add_arguement(
+        '--no-chat',
+        type='bool',
+        help='Use for prompting just one message instead of starting a full chat.'
+    )
+
+    parser.add_arguement(
+        '--file',
+        type=argparse.FileType('r', encoding='utf-8'),
+        help='Path to a file that is to be given to the model'
+    )
+
+    args = parser.parse_args()
+
+    # if args.no_chat:
+    #     prompt = " ".join(sys.argv[1:])
+    #     one_shot(prompt)
+
+    if not args.no_chat:
+        chat_mode()
 
     else:
         print('Useage: \nOne shot: askai <prompt>\nChat Mode: askai chat')
