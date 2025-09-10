@@ -34,15 +34,15 @@ def main():
 
     import argparse
 
-    parser = argparse.ArguementParser(description="Custom CLI tool for llm usage")
+    parser = argparse.ArgumentParser(description="Custom CLI tool for llm usage")
 
-    parser.add_arguement(
+    parser.add_argument(
         '--no-chat',
         type='bool',
         help='Use for prompting just one message instead of starting a full chat.'
     )
 
-    parser.add_arguement(
+    parser.add_argument(
         '--file',
         type=argparse.FileType('r', encoding='utf-8'),
         help='Path to a file that is to be given to the model'
