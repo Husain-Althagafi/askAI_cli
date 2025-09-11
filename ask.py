@@ -16,7 +16,7 @@ def chat_mode(file=None):
 
     file_content = file.read() if file else ''
 
-    init_prompt = "You are a helpful AI assistant. You will be provided with a file's content. Remember that information incase it is needed. Do not reply to this message at all."
+    init_prompt = "You are a helpful AI assistant. You will be provided with a file's content. It may or may not be empty. If not, remember that information incase it is needed. Do not reply to this message at all."
     chat.send_message_stream(init_prompt + file_content)
 
     while True:
