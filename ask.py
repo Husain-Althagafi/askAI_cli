@@ -15,20 +15,21 @@ def chat_mode(file=None):
     chat = client.chats.create(model='gemini-2.5-flash')
 
     file_content = file.read() if file else ''
-    
+
+    init_prompt = "You are a helpful AI assistant. You will be provided with a file's content. Remember that information incase it is needed. Do not reply to this message at all."
+    chat.send_message_stream(init_prompt + file_content)
+
     while True:
         prompt = input('\n(You): ')
 
         if prompt == 'exit':
             break
 
-        response = chat.send_message_stream(prompt + file_content)
-        print(' \n\n--------------------------------------------------------------------------------\n\n')
+        response = chat.send_message_stream(prompt)
 
-        print('Response: ')
+        print(' \n\n--------------------------------------------------------------------------------\n\nResponse: ')
         for chunk in response:
             print(chunk.text, end='')
-
         print(' \n\n--------------------------------------------------------------------------------\n\n')
 
 def main():

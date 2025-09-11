@@ -9,3 +9,13 @@ To use this here are the steps:
 5. this will generate a dist file. inside it will be the ask.exe. Just include this in your PATH and ur good.
 
 Thx for reading. if ur laptop is slow aswell hope this will be useful. Ill try to add actual features to it so that there is a point to using this instead of just the existing cli from google. 
+
+Functionalities:
+
+- File inputs: do --file and then the file path that u want to add to the model as input
+
+TODO:
+
+- make a better way of managing history
+- fix the logic for different chat modes
+- make it so that the llm doesnt treat the file as a part of the prompt, more like a memory bank
